@@ -1,5 +1,13 @@
 const http = require('http');
 const fs = require('fs');
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+client.connect();
 // Server configuration
 const port = process.env.PORT || 5000
 // Render page
